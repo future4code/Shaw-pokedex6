@@ -1,9 +1,9 @@
 # POKEDEX
 
 Nome dos integrantes: 
-- Pessoa 1
-- Pessoa 2
-- Pessoa 3
+- Matheus de Azevedo de Souza
+- Marcos Vinícius Vieira Cirqueira
+- Renan Martinez Alencar
 
 Link do Surge: www.link.com.br
 
