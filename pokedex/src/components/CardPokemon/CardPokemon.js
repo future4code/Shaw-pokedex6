@@ -1,8 +1,11 @@
 import axios from 'axios';
 import React, { useEffect, useState } from 'react'
+import {useNavigate} from 'react-router-dom'
 import {MainContainer, Card} from './styled'
+import {toDetails} from '../../router/Coordinator'
 
 export const CardPokemon = (props) => {
+  const navigate = useNavigate()
   const [ pokemon, setPokemon] = useState({});
   const [ imagem, setImage] = useState({})
 
@@ -25,10 +28,10 @@ useEffect(() => {
 return (
   <MainContainer>
     <Card>
-      <img src={imagem} alt={`Foto do pokemon ${pokemon.nome}`} />
+      <img src={imagem} alt={`Foto do pokemon ${pokemon.name}`} />
       <div>
         <button>Adicionar a PokéDex</button>
-        <button>Ver detalhes</button>
+        <button onClick={()=> toDetails(navigate,pokemon.name)}>Ver detalhes</button>
       </div>
     </Card>
   </MainContainer>

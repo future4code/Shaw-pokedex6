@@ -10,6 +10,6 @@ export const toPokeDex = (navigate) => {
   navigate('/pokedex');
 };
 
-export const toDetails = (navigate) => {
-  navigate('/details/:id');
+export const toDetails = (navigate,pokemon) => {
+  navigate(`/details/${pokemon}`);
 };

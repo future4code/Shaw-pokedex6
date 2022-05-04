@@ -5,6 +5,7 @@ display: flex;
 flex-direction: column;
 align-items: center;
 background-color: aliceblue;
+min-height: 100vh;
 `
 export const Conteudo = styled.div`
 display: flex;
@@ -13,6 +14,9 @@ align-items: center;
 background-color:#fa695e;
 border-radius: 5px;
 padding: 20px;
+h2{
+    margin: 0;
+}
 .Imagens{
     display: flex;
     align-items: center;
@@ -22,9 +26,19 @@ padding: 20px;
     height: 150px;
     margin: 10px;
     background-color: lightgrey;
-    img{
-        margin: auto;
+    .img1{
+        margin: 25px 5px 0 25px;
         width: 100px;
+    }
+    .img2{
+        margin: 0px 5px 25px 60px;
+        width: 80px;
+    }
+}
+.types{
+    display: flex;
+    p{
+        margin: 10px 15px;
     }
 }
 `
