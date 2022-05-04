@@ -6,10 +6,10 @@ import {toDetails} from '../../router/Coordinator'
 
 export const CardPokemon = (props) => {
   const navigate = useNavigate()
-  const [ pokemon, setPokemon] = useState({});
+  const [ pokemon, setPokemon] = useState([]);
   const [ imagem, setImage] = useState({})
 
-  const carregar = async() => {
+  const carregar = async() => { 
     await axios
     .get(`https://pokeapi.co/api/v2/pokemon/${props.pokeName}`)
     .then((res) => {
@@ -24,6 +24,8 @@ export const CardPokemon = (props) => {
 useEffect(() => {
   carregar()
 }, []);
+
+
 
 return (
   <MainContainer>
