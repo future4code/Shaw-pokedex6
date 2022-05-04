@@ -3,10 +3,10 @@ import React, { useEffect, useState } from 'react'
 import {MainContainer, Card} from './styled'
 
 export const CardPokemon = (props) => {
-  const [ pokemon, setPokemon] = useState({});
+  const [ pokemon, setPokemon] = useState([]);
   const [ imagem, setImage] = useState({})
 
-  const carregar = async() => {
+  const carregar = async() => { 
     await axios
     .get(`https://pokeapi.co/api/v2/pokemon/${props.pokeName}`)
     .then((res) => {
@@ -21,6 +21,8 @@ export const CardPokemon = (props) => {
 useEffect(() => {
   carregar()
 }, []);
+
+
 
 return (
   <MainContainer>
