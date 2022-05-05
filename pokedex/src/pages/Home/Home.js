@@ -7,8 +7,8 @@ import { GlobalContext } from '../../global/GlobalContext';
 
 export const Home = () => {
   const navigate = useNavigate();
-  const  {states}  = useContext(GlobalContext);
-  const listName = states.listPokemon;
+  const  { requests}  = useContext(GlobalContext);
+  const listName = requests.listPokemon;
 
   return (
     <div>
