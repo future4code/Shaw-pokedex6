@@ -7,8 +7,9 @@ import { GlobalContext } from '../../global/GlobalContext';
 
 export const Home = () => {
   const navigate = useNavigate();
-  const  { requests}  = useContext(GlobalContext);
-  const listName = requests.listPokemon;
+  const  { requests: { listPokemon}}  = useContext(GlobalContext);
+  // const  { requests}  = useContext(GlobalContext);
+  // const listName = requests.listPokemon;
 
   return (
     <div>
@@ -16,9 +17,9 @@ export const Home = () => {
       <button onClick={() => toPokeDex(navigate)}>Pokedex</button>
       <button onClick={() => toDetails(navigate)}>Details</button>
       <ListPoke>
-        {listName &&
-          listName.map((poke) => {
-            return <CardPokemon key={poke.name} pokeName={poke.name} />;
+        {listPokemon &&
+          listPokemon.map((poke) => {
+            return <CardPokemon key={poke.name} pokeName={poke.name} button={"Adicionar a PokéDex"} />;
           })
         }
       </ListPoke>

@@ -9,8 +9,9 @@ export const CardPokemon = (props) => {
   const navigate = useNavigate()
   const [ pokemon, setPokemon] = useState([]);
   const [ imagem, setImage] = useState([])
-  const  {states}  = useContext(GlobalContext);
-   const  {setter}  = useContext(GlobalContext);
+  const  {states, setter, requests}  = useContext(GlobalContext);
+  const {listPokemon, setListPokemon} = requests
+  //  const  {setter}  = useContext(GlobalContext);
    const pokedex = states.pokedex
    const setPokedex = setter.setPokedex
 
@@ -33,15 +34,35 @@ useEffect(() => {
 }, []);
 
 const addPokedex = (pokemon) => {
+  const hasPokemonInPokedex = pokedex.find((item)=> item.name === pokemon.name)
+  if(hasPokemonInPokedex) {
+    const newPokedex = pokedex.filter((item) => {
+      return (
+        item.name != pokemon.name
+      )
+    })
+    setPokedex(newPokedex)
+    setListPokemon([...listPokemon, pokemon])
+    return
+  }
+  //  Colocando o código abaixo dentro do else faz a mesma coisa do return!!!
   setPokedex([...pokedex, pokemon])
+  const newPokemonList = listPokemon.filter((item) => {
+    return (
+      item.name != pokemon.name
+    )
+  })  
+  setListPokemon(newPokemonList)
+ 
 }
+
 
 return (
   <MainContainer>
     <Card>
       <img src={imagem} alt={`Foto do pokemon ${pokemon.name}`} />
       <div>
-        <button onClick={() => addPokedex(pokemon, imagem)} >Adicionar a PokéDex</button>
+        <button onClick={() => addPokedex(pokemon, imagem)} >{props.button}</button>
         <button onClick={()=> toDetails(navigate, pokemon.name)}>Ver detalhes</button>
       </div>
     </Card>
