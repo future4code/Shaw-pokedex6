@@ -27,7 +27,6 @@ export const CardPokemon = (props) => {
     });
   }
 
-// console.log([imagem])
 useEffect(() => {
   listDetailsPokemon()
 }, []);

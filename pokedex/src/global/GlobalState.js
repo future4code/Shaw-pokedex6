@@ -8,8 +8,6 @@ export default function GlobalState(props) {
   const [ pokemon, setPokemon] = useState([])
   const [ pokedex, setPokedex] = useState([])
 
-  console.log(pokedex);
-
   const states = { pokemon, pokedex}
   const setter = {setPokemon, setPokedex}
   const requests = { listPokemon }
