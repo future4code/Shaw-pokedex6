@@ -1,6 +1,7 @@
 import axios from 'axios';
 import React, { useEffect, useState } from 'react'
 import {MainContainer, Card} from './styled'
+import { GlobalContext } from '../../global/GlobalContext';
 
 export const CardPokemon = (props) => {
   const [ pokemon, setPokemon] = useState([]);
@@ -29,7 +30,7 @@ return (
     <Card>
       <img src={imagem} alt={`Foto do pokemon ${pokemon.nome}`} />
       <div>
-        <button>Adicionar a PokéDex</button>
+        <button onClick={()=> props.setToPokedex()}>Adicionar a PokéDex</button>
         <button>Ver detalhes</button>
       </div>
     </Card>

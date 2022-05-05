@@ -5,7 +5,7 @@ import { CardPokemon } from '../../components/CardPokemon/CardPokemon';
 import { GlobalContext } from '../../global/GlobalContext';
 
 
-export const Home = () => {
+export const Home = (props) => {
   const navigate = useNavigate();
   const  {states}  = useContext(GlobalContext);
   const listName = states.listPokemon;
