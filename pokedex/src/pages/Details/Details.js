@@ -14,7 +14,7 @@ export const Details = () => {
   const navigate = useNavigate();
   const pokeName = useParams()
 
-  const carregar = async() => {
+  const detalhes = async() => {
     await axios
     .get(`https://pokeapi.co/api/v2/pokemon/${pokeName.name}`)
     .then((res) => {
@@ -31,14 +31,14 @@ export const Details = () => {
   }
 
   useEffect(() => {
-    carregar()
+    detalhes()
   }, []);
 
   return (
-    <MainContainer>Details
-        <button onClick={()=> toBack(navigate)}>Voltar</button>
+    <MainContainer>
         {pokeName && pokemon && pokemon.name ? 
           <Conteudo>
+            <button onClick={()=> toBack(navigate)}>Voltar</button>
             <h2>{pokemon.name.toUpperCase()}</h2>
             <div className='Imagens'>
               <img className='img1' src={imagemBack} alt={`${pokemon.name} back`}></img>

@@ -1,21 +1,22 @@
 import React, { useContext } from 'react'
-import { useNavigate } from "react-router-dom";
-import { toDetails, toPokeDex } from '../../router/Coordinator';
+import { useNavigate, useParams } from "react-router-dom";
 import { CardPokemon } from '../../components/CardPokemon/CardPokemon';
 import { ListPoke } from './styled';
 import { GlobalContext } from '../../global/GlobalContext';
+import { Header } from '../../components/Header/Header';
+import { Details } from '../Details/Details';
 
 export const Home = () => {
-  const navigate = useNavigate();
+  const params = useParams()
+  console.log(params);
   const  { requests: { listPokemon}}  = useContext(GlobalContext);
   // const  { requests}  = useContext(GlobalContext);
   // const listName = requests.listPokemon;
 
   return (
     <div>
-      <p>Home</p>
-      <button onClick={() => toPokeDex(navigate)}>Pokedex</button>
-      <button onClick={() => toDetails(navigate)}>Details</button>
+      {params.name ? <Details/> : null}
+      <Header/>
       <ListPoke>
         {listPokemon &&
           listPokemon.map((poke) => {
