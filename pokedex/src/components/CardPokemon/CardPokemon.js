@@ -37,7 +37,7 @@ const addPokedex = (pokemon) => {
   if(hasPokemonInPokedex) {
     const newPokedex = pokedex.filter((item) => {
       return (
-        item.name != pokemon.name
+        item.name !== pokemon.name
       )
     })
     setPokedex(newPokedex)
@@ -48,12 +48,24 @@ const addPokedex = (pokemon) => {
   setPokedex([...pokedex, pokemon])
   const newPokemonList = listPokemon.filter((item) => {
     return (
-      item.name != pokemon.name
+      item.name !== pokemon.name
     )
   })  
   setListPokemon(newPokemonList)
- 
 }
+
+// .sort((a,b) => a - b)
+
+
+// .sort((a,b) =>{
+//   if(a.id > b.id){
+//     return 1;
+//   }
+//   if(a.id < b.id){
+//     return -1
+//   }
+//   return 0
+// })
 
 
 return (

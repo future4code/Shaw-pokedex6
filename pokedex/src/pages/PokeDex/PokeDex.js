@@ -9,7 +9,7 @@ import { CardPokemon } from '../../components/CardPokemon/CardPokemon';
 
 export const PokeDex = () => {
   const {states} = useContext(GlobalContext);
-  const pokedex = states.pokedex
+  const pokedex = (states.pokedex).sort((a,b) => a.id - b.id)//ordenando o array 
   const navigate = useNavigate();
 
   const Pokedex = pokedex.map((item) => {
@@ -18,8 +18,7 @@ export const PokeDex = () => {
     )
   })
 
-
-  return (
+   return (
     <div>
       <HeaderPokedex />
       {Pokedex}
