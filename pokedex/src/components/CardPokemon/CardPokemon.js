@@ -27,14 +27,16 @@ export const CardPokemon = (props) => {
     });
   }
 
-
+// console.log([imagem])
 useEffect(() => {
   listDetailsPokemon()
 }, []);
 
 const addPokedex = (pokemon) => {
+
   setPokedex([...pokedex, pokemon])
 }
+
 
 return (
   <MainContainer>
