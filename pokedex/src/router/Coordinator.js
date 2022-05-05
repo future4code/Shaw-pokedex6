@@ -6,10 +6,14 @@ export const toHome = (navigate) => {
   navigate('/');
 };
 
-export const toPokeDex = (navigate) => {
-  navigate('/pokedex');
+export const toPokeDex = (navigate,page) => {
+  navigate(`/${page}`);
 };
 
 export const toDetails = (navigate,pokemon) => {
   navigate(`/details/${pokemon}`);
+};
+
+export const toDetailsPokeDex = (navigate,page,pokemon) => {
+  navigate(`/${page}/details/${pokemon}`);
 };
