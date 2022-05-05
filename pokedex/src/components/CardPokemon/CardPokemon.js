@@ -37,7 +37,7 @@ export const CardPokemon = (props) => {
     if(hasPokemonInPokedex) {
       const newPokedex = pokedex.filter((item) => {
         return (
-          item.name != pokemon.name
+          item.name !== pokemon.name
         )
       })
       setPokedex(newPokedex)
@@ -48,7 +48,7 @@ export const CardPokemon = (props) => {
     setPokedex([...pokedex, pokemon])
     const newPokemonList = listPokemon.filter((item) => {
       return (
-        item.name != pokemon.name
+        item.name !== pokemon.name
       )
     })  
     setListPokemon(newPokemonList)

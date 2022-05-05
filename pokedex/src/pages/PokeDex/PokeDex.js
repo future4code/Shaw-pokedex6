@@ -8,7 +8,7 @@ import { Details } from '../Details/Details';
 
 export const PokeDex = () => {
   const {states} = useContext(GlobalContext);
-  const pokedex = states.pokedex
+  const pokedex = (states.pokedex).sort((a,b) => a.id - b.id)//ordenando o array 
   const params = useParams()
 
   const Pokedex = pokedex.map((item) => {

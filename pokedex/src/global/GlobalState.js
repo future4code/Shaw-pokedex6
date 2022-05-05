@@ -15,7 +15,6 @@ export default function GlobalState(props) {
     }
   },[result])
 
-
   const states = { pokemon, pokedex}
   const setter = {setPokemon, setPokedex}
   const requests = { listPokemon, setListPokemon }
