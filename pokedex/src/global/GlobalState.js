@@ -12,6 +12,7 @@ export default function GlobalState(props) {
   useEffect(()=>{
     if(result && result.length > 0){
       setListPokemon(result)
+      console.log("Result", result);
     }
   },[result])
 

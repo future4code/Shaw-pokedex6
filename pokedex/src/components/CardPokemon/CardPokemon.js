@@ -41,7 +41,7 @@ export const CardPokemon = (props) => {
         )
       })
       setPokedex(newPokedex)
-      setListPokemon([...listPokemon, pokemon])
+      setListPokemon([...listPokemon, pokemon].sort((a,b) => a.id - b.id))
       return
     }
     //  Colocando o código abaixo dentro do else faz a mesma coisa do return!!!
@@ -51,7 +51,7 @@ export const CardPokemon = (props) => {
         item.name !== pokemon.name
       )
     })  
-    setListPokemon(newPokemonList)
+    setListPokemon(newPokemonList.sort((a,b) => a.id - b.id))
   }
 
 return (
