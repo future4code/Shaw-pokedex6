@@ -1,7 +1,10 @@
 import React from 'react'
-import {Container, ListPoke} from "./HeaderStyle"
+import {Container, ButtonHome, ButtonDex} from "./HeaderStyle"
 import {toHome, toPokeDex } from "../../router/Coordinator"
 import { useNavigate, useParams } from 'react-router-dom'
+import pokelist from '../../assets/img/pokelist.png'
+import pokedex from '../../assets/img/pokedex.png'
+import home from '../../assets/img/home.png'
 
 export const Header = () => {
   const navigate = useNavigate()
@@ -10,17 +13,18 @@ export const Header = () => {
     <Container>
       {params.page === 'pokedex' ?
       <div>
-        <h2> Pokedex </h2>
-        <ListPoke>
-        <button onClick={() => toHome(navigate)}>Back to Home</button>
-        </ListPoke>
+        <img className='logo' src={pokedex} alt='Logo PokeDex'/>
+        <ButtonDex onClick={() => toHome(navigate)}>
+          <img src={home}/>
+          <button>Back to Home</button>
+        </ButtonDex>
       </div> 
       : 
       <div>
-        <h2> List of Pokemons </h2>
-        <ListPoke>
-        <button onClick={() => toPokeDex(navigate,"pokedex")}>Pokedex</button>
-        </ListPoke>
+        <img className='logo' src={pokelist} alt='Logo PokeList'/>
+        <ButtonHome onClick={() => toPokeDex(navigate,"pokedex")}>
+          <button>Pokedéx</button>
+        </ButtonHome>
       </div>}
     </Container>
   )
