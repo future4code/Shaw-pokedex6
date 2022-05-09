@@ -120,7 +120,6 @@ export const Conteudo = styled.div`
     .types{
         display: flex;
         align-items: center ;
-        justify-content: center;
         align-self: flex-start;
         margin: 0px 10px;
         margin-bottom: 5px;
@@ -130,11 +129,30 @@ export const Conteudo = styled.div`
         align-self: center;
         }
     }
+    .add-remove{
+        margin: 5px 5px;
+        margin-top: 10px;
+        padding: 5px 10px;
+        border-radius: 5px;
+        font-family: 'Orbitron', sans-serif;
+        font-weight: bold;
+        color: white;
+        background-color:#131313;
+    }
+    @media screen and (min-device-width:320px) and (max-device-width:425px){
+        width: 80%;
+        .types{
+            width: 85%;
+            h2{
+                font-size: 1.2rem;
+            }
+        }
+    }
 `
 export const Type = styled.p`
     margin: 5px 5px;
     margin-top: 10px;
-    padding: 5px 15px;
+    padding: 5px 10px;
     border-radius: 5px;
     font-weight: bold;
     background: ${({ color }) => colorType(color)};
@@ -170,6 +188,20 @@ export const Display = styled.div`
             margin: 5px 10px;
         }
     }
+    @media screen and (min-device-width:320px) and (max-device-width:425px){
+        width: 80%;
+        .Imagens{
+            width: 100%;
+            .img1{
+                margin: 25px 5px 0 5%;
+                width: 40%;
+            }
+            .img2{
+                margin: 0px 5px 25px 20%;
+                width: 30%;
+            }
+        }
+    }
 `
 
 export const StatusContainer = styled.div`
@@ -179,12 +211,23 @@ export const StatusContainer = styled.div`
     background-color: lightblue;
     border-radius: 15px;
     margin: 5px 0; 
+    @media screen and (min-device-width:320px) and (max-device-width:425px){
+        width: 95%;
+    }
 `
 export const StatusBox = styled.div`
     display: flex;
     flex-direction: column;
-    margin: 0 15px; 
+    margin: 0 5px; 
+    margin-right: 10px;
     p{
         margin: 5px 5px; 
+    }
+    @media screen and (min-device-width:320px) and (max-device-width:425px){
+        margin: 0 5px;
+        margin-right: 3%;
+        p{
+            font-size: 0.8rem;
+        }
     }
 `

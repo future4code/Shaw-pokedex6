@@ -9,11 +9,10 @@ export const CardPokemon = (props) => {
   const navigate = useNavigate()
   const params = useParams()
   const [ pokemon, setPokemon] = useState([]);
-  const [ imagem, setImage] = useState([])
+  const [ image, setImage] = useState([])
   const [ type, setType] = useState([])
-  const  {states, setter, requests}  = useContext(GlobalContext);
+  const {states, setter, requests}  = useContext(GlobalContext);
   const {listPokemon, setListPokemon} = requests
-  //  const  {setter}  = useContext(GlobalContext);
   const pokedex = states.pokedex
   const setPokedex = setter.setPokedex
 
@@ -23,7 +22,6 @@ export const CardPokemon = (props) => {
     .then((res) => {
       setPokemon(res.data);
       setType(res.data.types[0].type.name)
-      console.log(res.data.types[0].type.name)
       setImage(res.data.sprites.other["official-artwork"].front_default)
     })
     .catch((err) => {
@@ -47,7 +45,6 @@ export const CardPokemon = (props) => {
       setListPokemon([...listPokemon, pokemon].sort((a,b) => a.id - b.id))
       return
     }
-    //  Colocando o código abaixo dentro do else faz a mesma coisa do return!!!
     setPokedex([...pokedex, pokemon])
     const newPokemonList = listPokemon.filter((item) => {
       return (
@@ -62,11 +59,11 @@ return (
     <Card  color={type}>
       <p className='number'>#{pokemon.id}</p>
       <div className='imagen'>
-        <img src={imagem} alt={`Foto do pokemon ${pokemon.name}`} />
+        <img src={image} alt={`Foto do pokemon ${pokemon.name}`} />
       </div>
       <p><strong>{pokemon && pokemon.name && pokemon.name.toUpperCase()}</strong></p>
       <div>
-        <button onClick={() => addPokedex(pokemon, imagem)} >{props.button}</button>
+        <button onClick={() => addPokedex(pokemon)} >{props.button}</button>
         {params.page === 'pokedex' ? 
         <button onClick={()=> toDetailsPokeDex(navigate,'pokedex', pokemon.name)}>See detais</button>
         :
