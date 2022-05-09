@@ -3,7 +3,7 @@ import styled from 'styled-components'
 export const MainContainer = styled.div`
   display: flex;
   flex-flow:  wrap;
-  font-family: 'Roboto', sans-serif;
+  font-family: 'Orbitron', sans-serif;
 `;
 
 const colorType = color => {
@@ -18,18 +18,19 @@ const colorType = color => {
       return "#a4acaf";
     case "bug":
       return "#729f3f";
+    case "poison":
+      return "#b97fc9";
     default:
       return "azure";
   }
 };
-
 
 export const Card = styled.div`
   display: flex;
   flex-direction: column;
   justify-content: space-between;
   max-width: 250px;
-  height: 300px;
+  height: 320px;
   border-radius: 10px;
   align-items: center;
   margin: 10px;
@@ -39,10 +40,11 @@ export const Card = styled.div`
   transition: 0.3s;
   button{
     border: none;
-    border-radius: 15px;
-    padding: 10px 5px;
-    margin: 5px;
-    font-size: 15px;
+    border-radius: 10px;
+    padding: 10px 7px;
+    margin: 2px;
+    font-family: 'Orbitron', sans-serif;
+    font-size: 12px;
     color: #eeeeee;
     background-color: rgba(0,0,0,0.2);
   }
@@ -61,8 +63,10 @@ export const Card = styled.div`
     }
   }
   .number{
-    margin: 0;
-    margin-left: 85%;
+    margin-top: 0;
+    margin-bottom: 0px;
+    margin-right: 5px;
+    align-self: flex-end;
     font-size: 18px ;
     font-weight: bold;
   }

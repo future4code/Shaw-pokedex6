@@ -7,7 +7,6 @@ export const Container = styled.div`
    height: 15vh;
    align-items: center;
    background-image: linear-gradient(rgb(48, 167, 215), transparent);
-   font-family: 'Roboto', sans-serif;
    .logo{
       position: absolute;
       left: 40%; 
@@ -36,8 +35,9 @@ export const ButtonHome = styled.div`
    button{
       border: none;
       background-color: inherit;
+      font-family: 'Orbitron', sans-serif;
       font-weight: bold;
-      font-size: 21px;
+      font-size: 18px;
    }
    :hover{
       background-image: url(${dexOpen});
@@ -57,6 +57,7 @@ export const ButtonDex = styled.div`
    button{
       border: none;
       background-color: inherit;
+      font-family: 'Orbitron', sans-serif;
       font-weight: bold;
       font-size: 18px;
    }
