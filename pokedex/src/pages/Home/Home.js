@@ -1,5 +1,5 @@
 import React, { useContext } from 'react'
-import { useNavigate, useParams } from "react-router-dom";
+import { useParams } from "react-router-dom";
 import { CardPokemon } from '../../components/CardPokemon/CardPokemon';
 import { MainContainer, ListPoke } from './styled';
 import { GlobalContext } from '../../global/GlobalContext';
@@ -10,8 +10,6 @@ export const Home = () => {
   const params = useParams()
   console.log(params);
   const  { requests: { listPokemon}}  = useContext(GlobalContext);
-  // const  { requests}  = useContext(GlobalContext);
-  // const listName = requests.listPokemon;
 
   return (
     <MainContainer>

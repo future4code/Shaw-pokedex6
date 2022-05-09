@@ -1,7 +1,8 @@
 import axios from 'axios';
-import React, { useEffect, useState } from 'react'
+import React, { useContext, useEffect, useState } from 'react'
 import { useNavigate, useParams } from "react-router-dom";
 import { toBack} from '../../router/Coordinator';
+import { GlobalContext } from '../../global/GlobalContext';
 import { MainContainer, Conteudo, StatusContainer, StatusBox, Display, Type } from './styeld';
 
 export const Details = () => {
@@ -12,14 +13,18 @@ export const Details = () => {
   const [ listStats, setlistStats] = useState([])
   const [ listAbilities, setlistAbilities] = useState([])
   const navigate = useNavigate();
+  const params = useParams()
   const pokeName = useParams()
+  const {states, setter, requests}  = useContext(GlobalContext);
+  const {listPokemon, setListPokemon} = requests
+  const pokedex = states.pokedex
+  const setPokedex = setter.setPokedex
 
   const detalhes = async() => {
     await axios
     .get(`https://pokeapi.co/api/v2/pokemon/${pokeName.name}`)
     .then((res) => {
       setPokemon(res.data);
-      console.log(res.data)
       setImageFront(res.data.sprites.versions["generation-v"]["black-white"].animated.front_default)
       setImageBack(res.data.sprites.versions["generation-v"]["black-white"].animated.back_default)
       setlistType(res.data.types)
@@ -29,6 +34,29 @@ export const Details = () => {
     .catch((err) => {
       alert("Houve um erro, tenta novamente!")
     });
+  }
+
+  const addPokedex = (pokemon) => {
+    const hasPokemonInPokedex = pokedex.find((item)=> item.name === pokemon.name)
+    if(hasPokemonInPokedex) {
+      const newPokedex = pokedex.filter((item) => {
+        return (
+          item.name !== pokemon.name
+        )
+      })
+      setPokedex(newPokedex)
+      setListPokemon([...listPokemon, pokemon].sort((a,b) => a.id - b.id))
+      toBack(navigate)
+      return
+    }
+    setPokedex([...pokedex, pokemon])
+    const newPokemonList = listPokemon.filter((item) => {
+      return (
+        item.name !== pokemon.name
+      )
+    })  
+    setListPokemon(newPokemonList.sort((a,b) => a.id - b.id))
+    toBack(navigate)
   }
 
   useEffect(() => {
@@ -85,6 +113,14 @@ export const Details = () => {
                   <p key={i}>{listAbilities[i].ability.name.toUpperCase()}</p>
                 )
               })}
+              {params.page === 'pokedex' ?
+                <div>      
+                    <button className='add-remove' onClick={() => addPokedex(pokemon)}>Remove from Pokedéx</button>
+                </div> 
+                : 
+                <div>
+                    <button className='add-remove' onClick={() => addPokedex(pokemon)}>Add to Pokedéx</button>
+                </div>}
          </Conteudo>
         : null}
     </MainContainer>
